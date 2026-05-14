@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>دعوة زفاف — إسلام & حبيبة</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400;1,700&family=Tajawal:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="hearts-bg" class="hearts-bg"></div>
+<div id="petals" style="position:fixed;inset:0;pointer-events:none;z-index:2;overflow:hidden;"></div>
+
+<!-- ENVELOPE -->
+<div id="envelope-screen">
+  <div class="env-pretitle">لديك دعوة خاصة 💌</div>
+  <div class="envelope" id="env" onclick="openEnv()">
+    <div class="env-body"></div>
+    <div class="env-flap" id="env-flap"></div>
+    <div class="env-seal">🌹</div>
+  </div>
+  <div class="env-hint">— انقر لفتح الدعوة —</div>
+</div>
+
+<!-- INVITATION -->
+<div id="invitation">
+  <div class="card-wrap" id="card">
+    <div class="paper">
+
+      <!-- Gold SVG corners -->
+      <div class="co tl"><svg viewBox="0 0 50 50" fill="none" width="50" height="50"><path d="M2 2 Q26 2 26 26" stroke="#C9924A" stroke-width="1.5" fill="none"/><path d="M2 2 Q2 26 26 26" stroke="#C9924A" stroke-width="1.5" fill="none"/><path d="M2 8 Q2 2 8 2" stroke="#C9924A" stroke-width="2.5" fill="none" stroke-linecap="round"/><circle cx="2" cy="2" r="2.5" fill="#C9924A" opacity="0.7"/><circle cx="26" cy="26" r="2" fill="#C9924A" opacity="0.35"/></svg></div>
+      <div class="co tr"><svg viewBox="0 0 50 50" fill="none" width="50" height="50"><path d="M2 2 Q26 2 26 26" stroke="#C9924A" stroke-width="1.5" fill="none"/><path d="M2 2 Q2 26 26 26" stroke="#C9924A" stroke-width="1.5" fill="none"/><path d="M2 8 Q2 2 8 2" stroke="#C9924A" stroke-width="2.5" fill="none" stroke-linecap="round"/><circle cx="2" cy="2" r="2.5" fill="#C9924A" opacity="0.7"/><circle cx="26" cy="26" r="2" fill="#C9924A" opacity="0.35"/></svg></div>
+      <div class="co bl"><svg viewBox="0 0 50 50" fill="none" width="50" height="50"><path d="M2 2 Q26 2 26 26" stroke="#C9924A" stroke-width="1.5" fill="none"/><path d="M2 2 Q2 26 26 26" stroke="#C9924A" stroke-width="1.5" fill="none"/><path d="M2 8 Q2 2 8 2" stroke="#C9924A" stroke-width="2.5" fill="none" stroke-linecap="round"/><circle cx="2" cy="2" r="2.5" fill="#C9924A" opacity="0.7"/><circle cx="26" cy="26" r="2" fill="#C9924A" opacity="0.35"/></svg></div>
+      <div class="co br"><svg viewBox="0 0 50 50" fill="none" width="50" height="50"><path d="M2 2 Q26 2 26 26" stroke="#C9924A" stroke-width="1.5" fill="none"/><path d="M2 2 Q2 26 26 26" stroke="#C9924A" stroke-width="1.5" fill="none"/><path d="M2 8 Q2 2 8 2" stroke="#C9924A" stroke-width="2.5" fill="none" stroke-linecap="round"/><circle cx="2" cy="2" r="2.5" fill="#C9924A" opacity="0.7"/><circle cx="26" cy="26" r="2" fill="#C9924A" opacity="0.35"/></svg></div>
+
+      <div class="candles-row s" data-d="60">
+        <div class="candle">🕯️</div>
+        <div class="candle">🕯️</div>
+        <div class="candle">🕯️</div>
+      </div>
+
+      <div class="bismillah-block s" data-d="100">بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ</div>
+
+      <div class="intro-block s" data-d="280">
+        يسعد عائلتَي
+        <strong> ابراهيم بدر </strong> و <strong> وليد </strong><br>
+        دعوتكم لمشاركة فرحة زواج نجليهما
+      </div>
+
+      <div class="names-block s" data-d="440">
+        <span class="big-name"> إسلام بدر </span>
+        <!-- <span class="name-role"><span class="d"></span>إعلامي<span class="d"></span></span> -->
+        <span class="names-and">🌹 ﹠ 🌹</span>
+        <span class="big-name"> حبيبة وليد </span>
+        <!-- <span class="name-role"><span class="d"></span>مُعلِّمة<span class="d"></span></span> -->
+      </div>
+
+      <div class="ornament-row s" data-d="580"><span>✦ ✦ ✦</span></div>
+
+      <div class="verse-block s" data-d="680">
+        <p class="verse-text">﴿ وَجَعَلَ بَيْنَكُم مَّوَدَّةً وَرَحْمَةً ﴾</p>
+        <span class="verse-ref">سورة الروم — الآية ٢١</span>
+      </div>
+
+      <div class="rose-divider s" data-d="750">🌹 🌸 🌹</div>
+
+      <div class="details-row s" data-d="820">
+        <div class="d-cell">
+          <span class="d-icon">🕊️</span>
+          <span class="d-lbl">التاريخ</span>
+          <span class="d-val"> السبت </span>
+          <span class="d-note"> ٣٠ مايو ٢٠٢٦</span>
+        </div>
+        <div class="div-line"></div>
+        <div class="d-cell">
+          <span class="d-icon">🕕</span>
+          <span class="d-lbl">الموعد</span>
+          <span class="d-val">٦:٠٠ مساءً</span>
+          <span class="d-note">العشاء والاحتفال</span>
+        </div>
+        <div class="div-line"></div>
+        <div class="d-cell">
+          <span class="d-icon">📍</span>
+          <span class="d-lbl">المكان</span>
+          <span class="d-val">قاعة jassie palace </span>
+          <span class="d-note">  بجوار كارفور , طنطا  </span>
+        </div>
+      </div>
+
+      <div class="cd-wrap s" data-d="960">
+        <div class="cd-title">العد التنازلي للفرح</div>
+        <div class="cd-row">
+          <div class="cd-box"><span class="cd-num" id="cdd">—</span><div class="cd-lbl">يوم</div></div>
+          <span class="cd-sep">·</span>
+          <div class="cd-box"><span class="cd-num" id="cdh">—</span><div class="cd-lbl">ساعة</div></div>
+          <span class="cd-sep">·</span>
+          <div class="cd-box"><span class="cd-num" id="cdm">—</span><div class="cd-lbl">دقيقة</div></div>
+          <span class="cd-sep">·</span>
+          <div class="cd-box"><span class="cd-num" id="cds">—</span><div class="cd-lbl">ثانية</div></div>
+        </div>
+      </div>
+
+      <div class="families-block s" data-d="1100">
+        <div class="fam-lbl">بدعوة كريمة من</div>
+        <div class="fam-names">
+          عائلة ابراهيم بدر
+          <span class="fam-sep">✦</span>
+          عائلة وليد
+        </div>
+      </div>
+
+      <div class="inv-footer s" data-d="1240">
+        <p>نسأل الله أن يبارك لهما ويجمعهما على خير</p>
+        <span class="sub">حضوركم شرف — ودعاؤكم هدية</span>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
