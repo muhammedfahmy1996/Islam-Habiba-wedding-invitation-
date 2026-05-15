@@ -20,7 +20,8 @@ function openEnv() {
 }
 
 // *** تاريخ الفرح — غيّر هنا فقط ***
-const WEDDING_DATE = '2026-05-30T18:00:00';
+// UTC+2 هو توقيت مصر (EET) — ٦ مساءً = ١٦:٠٠ UTC
+const WEDDING_DATE = '2026-05-30T16:00:00Z';
 
 function startCountdown() {
   const target = new Date(WEDDING_DATE);
@@ -29,56 +30,67 @@ function startCountdown() {
     return String(n).replace(/\d/g, d => '٠١٢٣٤٥٦٧٨٩'[d]);
   }
 
+  let timer = null;
+
   function tick() {
     const diff = target - new Date();
     if (diff <= 0) {
-      ['cdd','cdh','cdm','cds'].forEach(id =>
+      ['cdd', 'cdh', 'cdm', 'cds'].forEach(id =>
         document.getElementById(id).textContent = '٠٠'
       );
+      if (timer) {
+        clearInterval(timer);
+        timer = null;
+      }
       return;
     }
     document.getElementById('cdd').textContent = toAr(Math.floor(diff / 86400000));
-    document.getElementById('cdh').textContent = toAr(String(Math.floor((diff % 86400000) / 3600000)).padStart(2,'0'));
-    document.getElementById('cdm').textContent = toAr(String(Math.floor((diff % 3600000) / 60000)).padStart(2,'0'));
-    document.getElementById('cds').textContent = toAr(String(Math.floor((diff % 60000) / 1000)).padStart(2,'0'));
+    document.getElementById('cdh').textContent = toAr(String(Math.floor((diff % 86400000) / 3600000)).padStart(2, '0'));
+    document.getElementById('cdm').textContent = toAr(String(Math.floor((diff % 3600000) / 60000)).padStart(2, '0'));
+    document.getElementById('cds').textContent = toAr(String(Math.floor((diff % 60000) / 1000)).padStart(2, '0'));
   }
 
   tick();
-  setInterval(tick, 1000);
+  timer = setInterval(tick, 1000);
 }
+
+let heartsInterval = null;
+let petalsInterval = null;
 
 function startHearts() {
   const c = document.getElementById('hearts-bg');
-  const items = ['💕','💗','🌹','✨','💖','🌸','💝'];
+  const items = ['💕', '💗', '🌹', '✨', '💖', '🌸', '💝'];
 
   function spawn() {
+    if (document.hidden) return;
     const el = document.createElement('div');
     el.className = 'heart-float';
     const dur = 14 + Math.random() * 12;
     el.textContent = items[Math.floor(Math.random() * items.length)];
-    el.style.cssText = `left:${Math.random()*100}%;bottom:-20px;font-size:${10+Math.random()*12}px;animation-duration:${dur}s;animation-delay:${Math.random()*4}s;`;
+    el.style.cssText = `left:${Math.random() * 100}%;bottom:-20px;font-size:${10 + Math.random() * 12}px;animation-duration:${dur}s;animation-delay:${Math.random() * 4}s;`;
     c.appendChild(el);
     setTimeout(() => el.remove(), (dur + 5) * 1000);
   }
 
   for (let i = 0; i < 8; i++) setTimeout(spawn, i * 400);
-  setInterval(spawn, 1600);
+  heartsInterval = setInterval(spawn, 1600);
 }
 
 function startPetals() {
   const c = document.getElementById('petals');
-  const items = ['🌹','🌸','🌺','✨','💗','🍃'];
+  const items = ['🌹', '🌸', '🌺', '✨', '💗', '🍃'];
 
   function spawn() {
+    if (document.hidden) return;
     const el = document.createElement('div');
     el.className = 'petal';
     const dur = 11 + Math.random() * 10;
     el.textContent = items[Math.floor(Math.random() * items.length)];
-    el.style.cssText = `left:${Math.random()*100}%;bottom:-30px;font-size:${10+Math.random()*10}px;animation-duration:${dur}s;animation-delay:${Math.random()*3}s;`;
+    el.style.cssText = `left:${Math.random() * 100}%;bottom:-30px;font-size:${10 + Math.random() * 10}px;animation-duration:${dur}s;animation-delay:${Math.random() * 3}s;`;
     c.appendChild(el);
     setTimeout(() => el.remove(), (dur + 4) * 1000);
   }
 
   for (let i = 0; i < 5; i++) setTimeout(spawn, i * 500);
-  setInterval(spawn, 1800);
+  petalsInterval = setInterval(spawn, 1800);
 }

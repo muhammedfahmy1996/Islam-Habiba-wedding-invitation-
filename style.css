@@ -232,10 +232,10 @@ body::before {
 
 /* SVG corners */
 .co { position: absolute; width: 50px; height: 50px; }
-.co.tl { top: 4px; right: 4px; }
-.co.tr { top: 4px; left: 4px; transform: scaleX(-1); }
-.co.bl { bottom: 4px; right: 4px; transform: scaleY(-1); }
-.co.br { bottom: 4px; left: 4px; transform: scale(-1,-1); }
+.co.tl { top: 4px; left: 4px; }
+.co.tr { top: 4px; right: 4px; transform: scaleX(-1); }
+.co.bl { bottom: 4px; left: 4px; transform: scaleY(-1); }
+.co.br { bottom: 4px; right: 4px; transform: scale(-1,-1); }
 
 /* Section animations */
 .s { opacity: 0; transform: translateY(16px); }
